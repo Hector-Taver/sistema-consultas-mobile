@@ -14,7 +14,7 @@ export default function AppointmentCard({
   onConfirm,
   onCancel,
 }: AppointmentCardProps) {
-  function formatCurrency(currency: Number): string {
+  function formatCurrency(currency: number): string {
     return currency.toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
@@ -22,7 +22,7 @@ export default function AppointmentCard({
   }
 
   function formatDate(date: Date): string {
-    return date.toLocaleDateString("pt-BR");
+    return new Date(date).toLocaleDateString("pt-BR");
   }
 
   return (
@@ -56,7 +56,7 @@ export default function AppointmentCard({
       </View>
 
       <View style={styles.actions}>
-        {appointment.status === "confirmed" && (
+        {appointment.status === "scheduled" && (
           <>
             {onConfirm && (
               <View style={styles.containerButton}>
@@ -71,7 +71,7 @@ export default function AppointmentCard({
               <View style={styles.containerButton}>
                 <Button
                   title="Cancelar Consulta"
-                  onPress={onConfirm}
+                  onPress={onCancel}
                   color={"#F44336"}
                 />
               </View>

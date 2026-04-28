@@ -7,7 +7,7 @@ export interface Appointment {
     doctor: Doctor;
     patient: Patient;
     date: Date;
-    fee: Number;
+    fee: number;
     status: AppointmentStatus;
     observation?: string;
 }
